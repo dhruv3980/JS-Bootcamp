@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0%;
+        padding: 0%;
+
+    }
+    h1{
+        position: absolute;
+        color:white;
+        top: 12%;
+        font-style: italic;
+        letter-spacing: 2px;
+        left:50%;
+        transform: translate(-70%,-50%);
+    }
+    html,body{
+        height:100%;
+        width:100%;
+        background-color: rgb(184, 205, 205);
+       
+    }
+    .inpute{
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        height:100%;
+        width:55%;
+        display: block;
+        flex-wrap: wrap;
+        align-items: center;
+        
+    }
+    #input{
+        border: 2px solid black;
+        border-radius: 10px;
+        height: 35px;
+        margin:10px;
+        position: absolute;
+        top:20%;
+        left:40%;
+    }
+    #input:focus{
+        background-color: beige;
+        outline: none;
+        border-color: aqua;
+    }
+    #buttone{
+        position: absolute;
+        top:150px;
+        left:53%;
+
+        border:2px solid black; 
+        height: 35px;
+        border-radius: 7px;
+        cursor: pointer; 
+        color:blueviolet;
+    }
+    .todo{
+        position: relative;
+
+        display: flex;
+        width:50%;
+        top:35%;
+
+        justify-content: space-evenly;
+        left:55%;
+
+
+    }
+    li{
+        color: aqua;
+    }
+    #delete{
+        width: 75px;
+        border-radius: 5px;
+        margin-bottom:3px ;
+        color:aquamarine;
+        background-color: antiquewhite;
+    }
+    
+</style>
+<body>
+    <h1>Todo List</h1>
+
+    <div class="inpute">
+        <input type="text" placeholder="Enter Your Task Here" id="input">
+        <button id="buttone" >Add To DO</button>
+    </div>
+    
+    <script>
+        let body=document.querySelector('body')
+        let input=document.querySelector("#input");
+        let btn=document.getElementById('buttone');
+        let section=document.querySelector('.inpute');
+        let local=[];
+        const getTodo =()=>{
+           return JSON.parse(localStorage.getItem('youtubetodo'));
+        }
+        local=getTodo()||[];
+        const addtododynamic =(currele)=>{
+            let div = document.createElement('div');
+            div.classList.add('todo');
+            div.innerHTML=`<li>${currele}</li> <button id="delete">Delete Button</button>`;
+            console.log(div);
+            section.append(div);
+
+        }
+
+
+
+
+        let addtodolist=()=>{
+            
+            
+            const todolistvalue=input.value.trim();
+            
+            local.push(todolistvalue);
+            local=[...new Set(local)];
+            localStorage.setItem('youtubetodo',JSON.stringify(local));
+
+
+
+            // let div = document.createElement('div');
+            // div.classList.add('todo');
+            // div.innerHTML=`<li>${input.value}</li> <button id="delete">Delete Button</button>`;
+            // console.log(div);
+            // section.append(div);
+            addtododynamic(todolistvalue);
+
+
+        
+            input.value="";
+            div.querySelector('#delete').addEventListener('click', () => {
+                div.remove();
+            });
+
+           
+
+        }
+
+        const showtodo =()=>{
+            local.forEach((current)=>{
+                addtododynamic(current);
+            })
+        }
+        showtodo();
+        
+        btn.addEventListener('click',addtodolist);
+    </script>
+</body>
+</html>

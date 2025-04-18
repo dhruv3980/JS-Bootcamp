@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        h1{
+            text-align: center;
+        }
+        body{
+            background-color: aqua;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- <section>
+        <p>para</p>
+        <p>para <span>hello</span></p>
+    </section> -->
+
+        <button id="myButton">submit</button>
+
+
+
+    <!-- <h1>To Do APP</h1>
+    <input type="text" placeholder="Enter ToDo Here" id="input">
+    <button>Click Here</button>
+    <div></div> -->
+    <script>
+        // let input =document.querySelector('input');
+        // let btn = document.querySelector('button');
+        // let div = document.querySelector('div');
+
+        // const addtodo = ()=>{
+        //     let p =document.createElement('p');
+        //     p.innerText=input.value;
+          
+        //     div.append(p)
+        //     input.value=" ";
+
+
+
+        // }
+        // btn.addEventListener('click',()=>{
+        //     addtodo();
+        // })
+        // div.addEventListener('click',(event)=>{
+        //     let currentelem = event.target;
+        //     currentelem.remove()
+        // })
+
+
+
+        // let a = document.querySelector('section');
+        // a.addEventListener('click',function(event){
+        //     if(event.target.nodeName==='SPAN'){
+        //         console.log(event.target.innerText);
+
+        //     }
+            
+        // })
+
+        
+        const button = document.getElementById('myButton');
+
+// Event handler function
+function handleEvent(event) {
+  if (event.eventPhase === Event.AT_TARGET) {
+    console.log('Event is at the target phase.');
+    // Your target phase-specific logic here
+  }
+}
+
+// Attach event listeners for both capturing and bubbling phases
+button.addEventListener('click', handleEvent, true);  // Capturing phase
+button.addEventListener('click', handleEvent, false);
+
+        
+    </script>
+
+</body>
+</html>

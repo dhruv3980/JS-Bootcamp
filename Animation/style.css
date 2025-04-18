@@ -1,0 +1,21 @@
+.container{
+    height: 500px;
+    width:500px;
+    background-color: green;
+    
+    border: 3px solid black;
+    display: flex;
+
+}
+.box{
+    border: 2px solid orange;
+    background-color: blue;
+    height: 200px;
+    width:150px;
+    transition: transform 5s ease 2s;
+    
+}
+
+.box:hover{
+    transform: translateX(500px);
+}

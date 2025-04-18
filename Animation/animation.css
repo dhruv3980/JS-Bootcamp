@@ -1,0 +1,32 @@
+.container{
+    height:700px;
+    width: 500px;
+    background-color: blue;
+    border:5px solid green;
+}
+.box{
+    margin: 8px;
+    height:200px;
+    width:100px;
+    background-color: aqua;
+    color:white;
+    border: 5px solid yellow;
+    animation-name: dhruv;
+    animation-delay: 1s;
+    animation-duration: 3s;
+    animation-iteration-count: 3;
+    animation-timing-function: ease;
+    
+
+}
+
+@keyframes dhruv{
+    from{
+        width:100px;
+
+    }
+    to{
+        width:600px;
+
+    }
+}

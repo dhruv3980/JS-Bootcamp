@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let promise = new Promise((resolve, reject) => {
+        //     setTimeout(()=>{
+        //         console.log("i am first promis");
+        //     },5000);
+        //     resolve(3);
+            
+        // })
+        // let p = new Promise(function(resolve,reject){
+        //     setTimeout(function(){
+        //         console.log("i am second promise");
+        //     },6000);
+        //     reject(new Error("kuch to gadbad ha"));
+        // });
+        // console.log("hello ")
+
+
+
+        async function utility() {
+            let content =await fetch('https://jsonplaceholder.typicode.com/todos/1');
+            let p = await content.json()
+            console.log(p);
+            
+        }
+        utility();
+    </script>
+</body>
+</html>
